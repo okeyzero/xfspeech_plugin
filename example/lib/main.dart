@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:xf_speech_plugin/xf_speech_plugin.dart';
 
 void main() => runApp(MyApp());
@@ -20,7 +21,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> initPlatformState() async {
     final voice = XfSpeechPlugin.instance;
-    voice.initWithAppId(iosAppID: '5d4281f8', androidAppID: '5d4281f8');
+    voice.initWithAppId(iosAppID: '5ddd0498', androidAppID: '5ddd0498');
     final param = new XFVoiceParam();
     param.domain = 'iat';
     param.asr_ptt = '0';
@@ -76,8 +77,9 @@ class _MyAppState extends State<MyApp> {
           if (result.length > 0) {
             setState(() {
               iflyResultString += result;
-              XfSpeechPlugin.instance.startSpeaking(
-                  string: "你刚才说了" + iflyResultString);
+              print("你刚刚说了：" + iflyResultString);
+//              XfSpeechPlugin.instance.startSpeaking(
+//                  string: "你刚才说了" + iflyResultString);
             });
           }
         },
